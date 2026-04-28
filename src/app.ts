@@ -4,7 +4,12 @@ import cardRouter from "./card/card.router";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  methods: ["POST"],
+  allowedHeaders: ["Content-Type"],
+}));
+
 app.use(express.json());
 
 app.use("/card", cardRouter);
